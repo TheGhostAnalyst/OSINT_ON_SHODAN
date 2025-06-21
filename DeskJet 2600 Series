@@ -1,0 +1,83 @@
+==================================================
+🛰️ CYBERSAGE OSINT DEVICE REPORT
+Target: Exposed HP DeskJet Printer
+==================================================
+
+[1] EXECUTIVE SUMMARY
+----------------------
+This report documents the discovery of an HP DeskJet printer 
+publicly exposed via the internet. The printer’s interface 
+was accessible without authentication, leaking network and 
+device information that could aid attackers in reconnaissance.
+
+[2] DISCOVERY DETAILS
+----------------------
+Device Type      : HP DeskJet Printer
+Model            : DeskJet 2600 Series (based on web panel)
+IP Address       : 72.199.200.5
+Port             : 80 (HTTP)
+Shodan Query     : http.title:"HP" port:80
+Geo-location     : United States
+Date Discovered  : June 2025
+Access Control   : None (no login required)
+CVE Details.     : CVE-2021-39237
+[3] WEB INTERFACE OBSERVATIONS
+-------------------------------
+- Login page skipped (open admin panel)
+- Network SSID exposed: Cakera
+- WAN IP: 78.142.23.171 | LAN IP: 192.168.100.1
+- MAC Addresses (WAN): C4:6E:1F:3B:E7:E2
+- DHCP client list shows multiple devices
+- Memory usage + buffer/cache data visible
+
+[4] RISKS & IMPACT
+-------------------
+Privacy Risk     : Medium – Devices & network names exposed
+Remote Access    : Medium – Printing features might be misused
+Reconnaissance   : Low – Useful data for attackers (MAC, IP, SSID)
+
+[5] TECHNICAL DATA (EXTRACTED)
+-------------------------------
+WAN IP         : 78.142.23.171
+LAN IP         : 192.168.100.1
+SSID           : Cakera
+MAC (WAN)      : C4:6E:1F:3B:E7:E2
+
+--- Connected DHCP Clients ---
+• Chromecast         – 192.168.100.131
+• iPhone             – 192.168.100.125
+• MBP-van-MacBook    – 192.168.100.120
+• deco-S7            – 192.168.100.148
+• BBoil_RF_120       – 192.168.100.123
+• HUAWEI_P20         – 192.168.100.144
+• NI-707517          – 192.168.100.101
+• ...and more
+
+[6] RECOMMENDATIONS
+--------------------
+✓ Block public port 80 access
+✓ Restrict web UI to LAN only
+✓ Audit all printers/IoT devices for WAN exposure
+✓ Disable remote features if not protected by VPN
+
+[7] TOOLS USED
+---------------
+• Shodan – Device discovery
+• Browser – Manual inspection
+• WHOIS – IP lookup
+• Screenshots – Visual evidence
+
+[8] AUTHOR
+-----------
+Analyst: CyberSage (Habib)
+Project: OSINT Device Exposure
+Date: June 2025
+GitHub: https://github.com/CyberSage01
+
+[9] ETHICAL NOTICE
+-------------------
+This report is for educational purposes only.
+No logins were bypassed. No data was changed.
+The goal is awareness and better cybersecurity.
+
+==================================================
